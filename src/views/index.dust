@@ -4,7 +4,7 @@
     <title>{title}</title>
     <style>
         .btn{
-            margin-top: 10px;
+            margin: 10px;
         }
     </style>
 </head>
@@ -12,15 +12,15 @@
     <h1>{title}</h1>
     <div class="form">
         <form id="create_todo" action="/" method="post">
-            <textarea id="todo_value" name="text" rows="10" cols="50"></textarea>
+            <input name="todo_text" type="text" placeholder="Enter your TODO" />
             <input class="btn" type="submit" value="Add TODO" />
         </form>
     </div>
     <div id="list">
-        <h2>List</h2>
+        <h2>{listTitle} ({todoListSize})</h2>
         <ul class="todo-list">
             {#todoList}
-                <li>{.} <input id="{.}" type="button" value="X" /></li>
+                <li>{.} <input id="{.}" class="btn" type="button" value="X" /></li>
             {:else}
                 <em>There are any TODO yet.</em>
             {/todoList}
