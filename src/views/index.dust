@@ -20,7 +20,12 @@
         <h2>{listTitle} ({todoListSize})</h2>
         <ul class="todo-list">
             {#todoList}
-                <li>{.} <input id="{.}" class="btn" type="button" value="X" /></li>
+                <li>
+                    <form action="/rm/{.}" method="post">
+                        {.} 
+                        <input class="btn" type="submit" value="X" />
+                    </form>
+                </li>
             {:else}
                 <em>There are any TODO yet.</em>
             {/todoList}

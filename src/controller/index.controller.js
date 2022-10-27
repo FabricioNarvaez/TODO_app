@@ -19,6 +19,12 @@ const controller = {
         };
 
         return res.redirect(req.originalUrl);
+    },
+    remove: (req, res)=>{
+        var value = req.params.value;
+        todoList = todoList.filter(item => item !== value);
+        
+        return res.redirect('/');
     }
 }
 
