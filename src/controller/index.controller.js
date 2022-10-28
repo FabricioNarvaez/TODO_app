@@ -23,7 +23,7 @@ const controller = {
     },
     create: (req, res)=>{
         const todo = req.body.todo_text;
-        const todoArray = todo.split(', ');
+        const todoArray = todo.split('; ');
 
         function capitalizeFirstLetter(string) {
             return string.charAt(0).toUpperCase() + string.slice(1);

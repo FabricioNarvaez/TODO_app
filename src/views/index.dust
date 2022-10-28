@@ -11,7 +11,7 @@
             <form class="create-todo" action="/" method="post">
                 <input class="todo-text" name="todo_text" type="text" placeholder="Enter your TODO" />
                 <input class="green-btn" type="submit" value="Add TODO" />
-                <p class="create-description">Add multiple TODO`s separated with ", "</p>
+                <p class="create-description">Add multiple TODO`s separated with "; "</p>
             </form>
         </div>
         <div class="list">
