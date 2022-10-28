@@ -3,6 +3,10 @@
 @green: rgb(0, 175, 6);
 @red: rgb(241, 77, 77);
 
+.subtitleStyles(@margin: 15px){
+    margin-bottom: @margin;
+    font-size: 28px;
+}
 .rounded-corners(@radius: 10px){
     border-radius: @radius;
     -webkit-border-radius: @radius;
@@ -42,6 +46,21 @@ body{
     color: @white;
 }
 
+.title{
+    font-size: 60px;
+}
+.green-btn{
+    text-decoration: none;
+    .button-style;
+}
+.list-title{
+    .subtitleStyles;
+}
+.error-text{
+    .subtitleStyles(30px);
+}
+
+
 .container{
     padding: 50px;
     background-color: fade(@white, 20%);
@@ -49,10 +68,6 @@ body{
     margin-left: auto;
     margin-right: auto;
     .rounded-corners;
-
-    .app-title{
-        font-size: 40px;
-    }
 
     .form{
         margin-top: 20px;
@@ -63,17 +78,11 @@ body{
             padding-left: 10px;
             .rounded-corners;
         }
-        .add-btn{
-            .button-style;
-        }
     }
     
     .list{
         margin-top: 30px;
-        .list-title{
-            margin-bottom: 15px;
-            font-size: 28px;
-        }
+        
         .todo-list{
             list-style: none;
 
@@ -96,6 +105,8 @@ body{
         }
         
         .delete-btn{
+            width: 35px;
+            height: 35px;
             .button-style(@red);
         }
     }
