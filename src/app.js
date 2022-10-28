@@ -16,10 +16,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(routes);
 
-app.use((req, res)=>{
-    res.sendFile(path.join(__dirname, '../public/404.html'));
-})
-
 app.listen(PORT, ()=>{
     console.log(`Running at port ${PORT}...`);
 })

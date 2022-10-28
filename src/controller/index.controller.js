@@ -1,6 +1,15 @@
+const path = require('path');
 var todoList = [];
 
 const controller = {
+    error: (req, res)=>{
+        var model = {
+            apptitle: '404',
+            description: 'Not Found'
+        }
+
+        res.render('404_ERROR', model);
+    },
     index: (req, res)=>{
         var todoListSize = todoList.length;
         var model = {
