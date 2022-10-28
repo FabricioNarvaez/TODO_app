@@ -119,8 +119,15 @@ body {
     align-items: center;
   }
   .container .create-todo .todo-text {
+    order: 1;
     width: 80%;
     margin-bottom: 10px;
+  }
+  .container .create-todo .green-btn {
+    order: 3;
+  }
+  .container .create-todo .create-description {
+    order: 2;
   }
   .container .list .todo-list .list-item {
     width: 90%;

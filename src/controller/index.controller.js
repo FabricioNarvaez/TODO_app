@@ -3,7 +3,7 @@ var todoList = [];
 
 const controller = {
     error: (req, res)=>{
-        var model = {
+        const model = {
             apptitle: '404',
             description: 'Not Found'
         }
@@ -11,8 +11,8 @@ const controller = {
         res.render('404_ERROR', model);
     },
     index: (req, res)=>{
-        var todoListSize = todoList.length;
-        var model = {
+        const todoListSize = todoList.length;
+        const model = {
             appTitle: 'TODO app',
             listTitle: 'TODO list',
             todoList: todoList,
@@ -22,20 +22,30 @@ const controller = {
         res.render('index', model);
     },
     create: (req, res)=>{
+        const todo = req.body.todo_text;
+        const todoArray = todo.split(', ');
+
         function capitalizeFirstLetter(string) {
             return string.charAt(0).toUpperCase() + string.slice(1);
         }
 
-        var value = capitalizeFirstLetter(req.body.todo_text);
-        if(value !== '' && !todoList.includes(value)){
-            todoList.push(value);
-        };
+        function addNewTodo(todo){
+            const todoCapitalized = capitalizeFirstLetter(todo);
+            if(todoCapitalized !== '' && !todoList.includes(todoCapitalized)){
+                todoList.push(todoCapitalized);
+            };
+
+        }
+
+        for(const item of todoArray){
+            addNewTodo(item);
+        }
 
         return res.redirect(req.originalUrl);
     },
     remove: (req, res)=>{
-        var value = req.params.value;
-        todoList = todoList.filter(item => item !== value);
+        const todoToRemove = req.params.value;
+        todoList = todoList.filter(item => item !== todoToRemove);
         
         return res.redirect('/');
     }
