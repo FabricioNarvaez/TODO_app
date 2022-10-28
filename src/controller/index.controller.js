@@ -4,17 +4,21 @@ const controller = {
     index: (req, res)=>{
         var todoListSize = todoList.length;
         var model = {
-            title: 'TODO app',
+            appTitle: 'TODO app',
             listTitle: 'TODO list',
-            todoListSize: todoListSize,
-            todoList: todoList
+            todoList: todoList,
+            todoListSize: todoListSize
         }
 
         res.render('index', model);
     },
-    update: (req, res)=>{
-        var value = req.body.todo_text;
-        if(!todoList.includes(value)){
+    create: (req, res)=>{
+        function capitalizeFirstLetter(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+
+        var value = capitalizeFirstLetter(req.body.todo_text);
+        if(value !== '' && !todoList.includes(value)){
             todoList.push(value);
         };
 

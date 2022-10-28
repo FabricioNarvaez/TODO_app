@@ -1,36 +1,33 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>{title}</title>
-    <style>
-        .btn{
-            margin: 10px;
-        }
-    </style>
+    <title>{appTitle}</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
 <body>
-    <h1>{title}</h1>
-    <div class="form">
-        <form id="create_todo" action="/" method="post">
-            <input name="todo_text" type="text" placeholder="Enter your TODO" />
-            <input class="btn" type="submit" value="Add TODO" />
-        </form>
-    </div>
-    <div id="list">
-        <h2>{listTitle} ({todoListSize})</h2>
-        <ul class="todo-list">
-            {#todoList}
-                <li>
-                    <form action="/rm/{.}" method="post">
-                        {.} 
-                        <input class="btn" type="submit" value="X" />
-                    </form>
-                </li>
-            {:else}
-                <em>There are any TODO yet.</em>
-            {/todoList}
-        </ul>
-        <!-- <p>{todoList}</p> -->
+    <div class="container">
+        <h1 class="app-title">{appTitle}</h1>
+        <div class="form">
+            <form class="create-todo" action="/" method="post">
+                <input class="todo-text" name="todo_text" type="text" placeholder="Enter your TODO" />
+                <input class="add-btn" type="submit" value="Add TODO" />
+            </form>
+        </div>
+        <div class="list">
+            <h2 class="list-title">{listTitle} ({todoListSize})</h2>
+            <ul class="todo-list">
+                {#todoList}
+                    <li class="list-item">
+                        <form class="delete-todo" action="/rm/{.}" method="post">
+                            {.} 
+                            <input class="delete-btn" type="submit" value="X" />
+                        </form>
+                    </li>
+                {:else}
+                    <em>There are any TODO yet.</em>
+                {/todoList}
+            </ul>
+        </div>
     </div>
 </body>
 </html>
