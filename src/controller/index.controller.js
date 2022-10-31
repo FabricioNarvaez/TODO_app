@@ -1,4 +1,3 @@
-const path = require('path');
 var todoList = [];
 
 const controller = {
@@ -23,9 +22,10 @@ const controller = {
     },
     create: (req, res)=>{
         const todo = req.body.todo_text;
-        const todoArray = todo.split('; ');
+        const todoArray = todo.split(';');
 
         function capitalizeFirstLetter(string) {
+            string = string.trim();
             return string.charAt(0).toUpperCase() + string.slice(1);
         }
 
@@ -45,6 +45,8 @@ const controller = {
     },
     remove: (req, res)=>{
         const todoToRemove = req.params.value;
+        console.log(todoToRemove);
+        console.log(todoList)
         todoList = todoList.filter(item => item !== todoToRemove);
         
         return res.redirect('/');

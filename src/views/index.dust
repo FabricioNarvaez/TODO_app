@@ -9,7 +9,7 @@
         <h1 class="title">{appTitle}</h1>
         <div class="form">
             <form class="create-todo" action="/" method="post">
-                <input class="todo-text" name="todo_text" type="text" placeholder="Enter your TODO" />
+                <input class="new-todo-text" name="todo_text" type="text" placeholder="Enter your TODO" />
                 <input class="green-btn" type="submit" value="Add TODO" />
                 <p class="create-description">Add multiple TODO`s separated with "; "</p>
             </form>
@@ -20,7 +20,7 @@
                 {#todoList}
                     <li class="list-item">
                         <form class="delete-todo" action="/rm/{.}" method="post">
-                            <p>{.}</p>
+                            <p class="todo-text">{.}</p>
                             <input class="delete-btn" type="submit" value="X" />
                         </form>
                     </li>
