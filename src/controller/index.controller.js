@@ -45,8 +45,6 @@ const controller = {
     },
     remove: (req, res)=>{
         const todoToRemove = req.params.value;
-        console.log(todoToRemove);
-        console.log(todoList)
         todoList = todoList.filter(item => item !== todoToRemove);
         
         return res.redirect('/');
