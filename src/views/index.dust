@@ -19,7 +19,7 @@
             <ul class="todo-list">
                 {#todoList}
                     <li class="list-item">
-                        <form class="delete-todo" action="/rm/{.}" method="post">
+                        <form class="delete-todo" action="/remove/{.}" method="post">
                             <p class="todo-text">{.}</p>
                             <input class="delete-btn" type="submit" value="X" />
                         </form>
