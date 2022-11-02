@@ -48,7 +48,7 @@ const controller = {
     },
     remove: (req, res)=>{
         const todoToRemove = req.params.value;
-        todoList = todoList.filter(item => item !== todoToRemove);
+        todoList = todoList.filter(item => item.todoText !== todoToRemove);
         
         return res.redirect('/');
     },

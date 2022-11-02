@@ -20,7 +20,7 @@
             <ul class="todo-list">
                 {#todoList}
                     <li class="list-item">
-                        <form class="delete-todo" action="/remove/{.}" method="post">
+                        <form class="delete-todo" action="/remove/{.todoText}" method="post">
                             <div class="todo-checkbox">
                                 {#.completed}
                                     <input type="checkbox" name="isTodoCompleted" id="isTodoCompleted" checked />
