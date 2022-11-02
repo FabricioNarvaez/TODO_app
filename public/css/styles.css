@@ -82,7 +82,11 @@ body {
   -moz-border-radius: 10px;
   border-width: thin;
 }
-.container .list .todo-list .list-item .todo-text {
+.container .list .todo-list .list-item .todo-checkbox {
+  display: flex;
+  gap: 15px;
+}
+.container .list .todo-list .list-item .todo-checkbox .todo-text {
   padding: 15px 0px;
 }
 .container .list .todo-list .list-item .delete-todo {

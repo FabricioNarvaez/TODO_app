@@ -32,7 +32,10 @@ const controller = {
         function addNewTodo(todo){
             const todoCapitalized = capitalizeFirstLetter(todo);
             if(todoCapitalized !== '' && !todoList.includes(todoCapitalized)){
-                todoList.push(todoCapitalized);
+                todoList.push({
+                                todoText: todoCapitalized,
+                                completed: false
+                            });
             };
 
         }
@@ -48,7 +51,11 @@ const controller = {
         todoList = todoList.filter(item => item !== todoToRemove);
         
         return res.redirect('/');
-    }
+    },
+    // update: (req, res)=>{
+    //     const isTodoCompleted = req.body.isTodoCompleted;
+    //     console.log("test");
+    // }
 }
 
 module.exports = controller;
