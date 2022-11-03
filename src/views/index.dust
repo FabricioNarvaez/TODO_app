@@ -20,16 +20,17 @@
             <ul class="todo-list">
                 {#todoList}
                     <li class="list-item">
-                        <form class="delete-todo" action="/remove/{.todoText}" method="post">
+                        <form class="delete-todo" action="/update/{todoText}" method="post">
                             <div class="todo-checkbox">
-                                {#.completed}
-                                    <input type="checkbox" name="isTodoCompleted" id="isTodoCompleted" checked />
+
+                                {#completed}
+                                    <input onChange="this.form.submit()" type="checkbox" name="isTodoCompleted" id="isTodoCompleted" checked />
                                 {:else}
-                                    <input type="checkbox" name="isTodoCompleted" id="isTodoComplete"/>
-                                {/.completed}
-                                <label class="todo-text" for="isTodoCompleted">{.todoText}</label>
+                                    <input onChange="this.form.submit()" type="checkbox" name="isTodoCompleted" id="isTodoComplete"/>
+                                {/completed}
+                                <label class="todo-text" for="isTodoCompleted">{todoText}</label>
                             </div>
-                            <input class="delete-btn" type="submit" value="X" />
+                            <input formaction="/remove/{todoText}" class="delete-btn" type="submit" value="X" />
                         </form>
                     </li>
                 {:else}

@@ -37,7 +37,6 @@ const controller = {
                                 completed: false
                             });
             };
-
         }
 
         for(const item of todoArray){
@@ -52,10 +51,13 @@ const controller = {
         
         return res.redirect('/');
     },
-    // update: (req, res)=>{
-    //     const isTodoCompleted = req.body.isTodoCompleted;
-    //     console.log("test");
-    // }
+    update: (req, res)=>{
+        const todoToModify = req.params.value;
+        const todoFound = todoList.find(item => item.todoText === todoToModify);
+
+        todoFound.completed = !todoFound.completed;
+        return res.redirect('/');
+    }
 }
 
 module.exports = controller;
