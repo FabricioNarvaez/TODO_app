@@ -31,12 +31,12 @@ const controller = {
 
         function addNewTodo(todo){
             const todoCapitalized = capitalizeFirstLetter(todo);
-            if(todoCapitalized !== '' && !todoList.includes(todoCapitalized)){
+            if(todoCapitalized !== '' && !todoList.find(item => item.todoText === todoCapitalized)){
                 todoList.push({
                                 todoText: todoCapitalized,
                                 completed: false
                             });
-            };
+            }
         }
 
         for(const item of todoArray){

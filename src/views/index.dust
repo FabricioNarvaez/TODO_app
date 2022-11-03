@@ -22,7 +22,6 @@
                     <li class="list-item">
                         <form class="delete-todo" action="/update/{todoText}" method="post">
                             <div class="todo-checkbox">
-
                                 {#completed}
                                     <input onChange="this.form.submit()" type="checkbox" name="isTodoCompleted" id="isTodoCompleted" checked />
                                 {:else}
